@@ -1,10 +1,10 @@
 <template>
   <div>
     <div id="banner-top">
-      <p style="padding: 5px;">Welcome to e-learning hi plateform.</p>
+      <span style="padding: 5px;">Welcome to e-learning hi plateform.</span>
     </div>
 
-    <div class="container">
+    <div class="">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
@@ -44,6 +44,9 @@
                   >Register</router-link
                 >
               </li>
+              <li class="nav-item">
+                <button class="nav-link" @click="logout">Logout</button>
+              </li>
             </ul>
           </div>
         </div>
@@ -53,6 +56,22 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    async logout() {
+      try {
+        await axios.post('/api/logout');
+        alert('Logged out successfully');
+        this.$router.push('/login');
+      } catch (error) {
+        alert('Error logging out');
+      }
+    }
+  }
+};
+</script>
 
 <style>
 .nav-link.active-bold {
