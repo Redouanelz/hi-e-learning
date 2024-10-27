@@ -14,6 +14,7 @@
   </template>
   
   <script>
+import { mapActions } from 'vuex';
 
   export default {
     data() {
@@ -23,13 +24,15 @@
       };
     },
     methods: {
+      ...mapActions(['setUser']),
       async login() {
         try {
           const response = await axios.post('/api/login', {
             email: this.email,
             password: this.password,
           });
-          alert('Login successful');
+         
+          this.setUser(response.data.user); // Save the user in Vuex
           this.$router.push('/dashboard');
         } catch (error) {
           alert('Invalid credentials');
