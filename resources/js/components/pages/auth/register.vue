@@ -2,7 +2,7 @@
     <div>
      
         <div class="col-md-4 offset-4 ">
-            <h2>Register</h2>
+            <h2 class="text-2xl">Register</h2>
             <form @submit.prevent="register">
                 Full name
                 <input class="form-control"  v-model="name" type="text" placeholder="Name" required />
@@ -11,7 +11,7 @@
                 Password
                 <input class="form-control" v-model="password" type="password" placeholder="Password" required />
                <br>
-                <button class="btn btn-outline-success" type="submit">Register</button>
+                <button class="btn btn-primary" type="submit">Register</button>
             </form>
         </div>
     </div>

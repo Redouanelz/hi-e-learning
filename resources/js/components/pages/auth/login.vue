@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="col-md-4 offset-4">
-            <h2>Login</h2>
+            <h2 class="text-2xl">Login</h2>
             <form @submit.prevent="login">
                 Email
                 <input class="form-control" v-model="email" type="email" placeholder="Email" required />
                 Password
                 <input class="form-control" v-model="password" type="password" placeholder="Password" required />
-                <br><button class="btn btn-outline-success" type="submit">Login</button>
+                <br><button class="btn btn-primary" type="submit">Login</button>
             </form>
         </div>
     </div>
