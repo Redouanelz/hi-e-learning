@@ -47,9 +47,9 @@ export default {
         this.setUser(response.data.user); // Save the user in Vuex
         // Redirect based on the user's role
         if (response.data.user.role === "instructor") {
-          this.$router.push("/instructor_dashboard");
+          this.$router.push("/instructor/dashboard");
         } else if (response.data.user.role === "student") {
-          this.$router.push("/student_dashboard");
+          this.$router.push("/student/dashboard");
         }
       } catch (error) {
         alert("Invalid credentials");

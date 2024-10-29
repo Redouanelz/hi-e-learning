@@ -25,21 +25,21 @@
       <div class="row">
         <div
           class="col-md-3 animated-number"
-          style="border-right: 1px solid gray"
+          style="border-right:  6px solid white;border-left:  6px solid white"
         >
           <h1 data-count="4">0</h1>
           <span>Chapters</span>
         </div>
         <div
           class="col-md-3 animated-number"
-          style="border-right: 1px solid gray"
+          style="border-right: 6px solid white"
         >
           <h1 data-count="56">0</h1>
           <span>Lessons</span>
         </div>
         <div
           class="col-md-3 animated-number"
-          style="border-right: 1px solid gray"
+          style="border-right:  6px solid white"
         >
           <h1 data-count="42">0</h1>
           <span>Hours of video</span>
@@ -170,8 +170,25 @@
             <p class="font-italic font-weight-normal mb-0">- Teresa May</p>
           </div>
         </div>
-      </section>
+      </section>      
     </div>
+
+
+    <div class="my-container" id="start-now">
+        <div class="row">
+          <div class="col-md-3 offset-2">
+            <br>
+              <button class="btn" id="btn-start-now">Start now</button>
+          </div>
+          <div class="col-md-6">
+              <h1>Start learning today!</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit dignissim arcu cursus tincidunt et odio enim aliquam.</p>
+          </div>
+         
+        </div>
+    </div>
+
+    
   </div>
 </template>
 

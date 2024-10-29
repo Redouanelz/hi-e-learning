@@ -33,7 +33,7 @@
                 <router-link
                   active-class="active-bold"
                   class="nav-link"
-                  to="/instructor_dashboard"
+                  to="/instructor/dashboard"
                 >
                   <i class="bi bi-speedometer"></i> Instructor Dashboard
                 </router-link>
@@ -42,7 +42,7 @@
                 <router-link
                   active-class="active-bold"
                   class="nav-link"
-                  to="/student_dashboard"
+                  to="/student/dashboard"
                 >
                   <i class="bi bi-speedometer"></i> Student Dashboard
                 </router-link>
@@ -87,7 +87,6 @@
     </div>
 
     <footer style="margin-top: 50px; margin-bottom: 100px">
-      <hr />
       <div class="container">
         <div class="row">
           <div class="col-md-4">

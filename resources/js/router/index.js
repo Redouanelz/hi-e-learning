@@ -20,8 +20,8 @@ const routes = [
     },
     { path: '/login', component:login  },
     { path: '/register', component:register  },
-    { path: '/student_dashboard', component:student  },
-    { path: '/instructor_dashboard', component:instructor  },
+    { path: '/student/dashboard', component:student  },
+    { path: '/instructor/dashboard', component:instructor  },
 
 ]
 
