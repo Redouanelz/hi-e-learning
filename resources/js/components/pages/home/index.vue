@@ -3,10 +3,10 @@
     <!-- Header Section with Image and Text -->
     <div class="row" style="margin-top: 50px">
       <div class="col-md-4 offset-2">
-        <img src="/public/banner.svg" alt="" class="fade-in-animation" />
+        <img src="/public/banner.svg" alt="" width="100%" class="fade-in-animation" />
       </div>
       <div class="col-md-4 ">
-        <div class="slide-in-text" style="margin-top: 100px">
+        <div class="slide-in-text" style="margin-top: 50px">
           <h2>Hi</h2>
           <h5>E-learning platform</h5>
           <p style="color: gray">
@@ -63,7 +63,7 @@
             doloremque beatae harum, delectus accusantium ullam nobis dicta,
             voluptate officia. Sit dignissimos minus explicabo!
           </p>
-          <button class="btn btn-outline-primary">Learn more</button>
+          <button class="btn btn-primary">Learn more</button>
         </div>
         <div class="col-md-4 service-card">
           <img src="/public/e3.png" width="60%" class="scale-on-hover" />
@@ -74,7 +74,7 @@
             doloremque beatae harum, delectus accusantium ullam nobis dicta,
             voluptate officia. Sit dignissimos minus explicabo!
           </p>
-          <button class="btn btn-outline-primary">Learn more</button>
+          <button class="btn btn-primary">Learn more</button>
         </div>
         <div class="col-md-4 service-card">
           <img src="/public/e4.png" width="60%" class="scale-on-hover" />
@@ -85,9 +85,23 @@
             doloremque beatae harum, delectus accusantium ullam nobis dicta,
             voluptate officia. Sit dignissimos minus explicabo!
           </p>
-          <button class="btn btn-outline-primary">Learn more</button>
+          <button class="btn btn-primary">Learn more</button>
         </div>
       </div>
+    </div>
+
+
+    <div class="my-container" id="start-now">
+        <div class="row">
+          <div class="col-md-6">
+              <h1>Start learning today!</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit dignissim arcu cursus tincidunt et odio enim aliquam.</p>
+          </div>
+          <div class="col-md-3 offset-2">
+            <br>
+              <button class="btn" id="btn-start-now">Start now</button>
+          </div>
+        </div>
     </div>
 
     <div class="container" style="margin-top: 150px">
@@ -119,7 +133,14 @@
             <p class="lead my-3 text-muted">
               "Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing
               elit sed ut perspiciatis unde omnis."
+              <br>              
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
             </p>
+           
             <p class="font-italic font-weight-normal mb-0">- Anna Morian</p>
           </div>
           <div
@@ -137,6 +158,14 @@
             <p class="lead my-3 text-muted">
               "Neque cupiditate assumenda in maiores repudiandae mollitia
               architecto elit sed adipiscing elit."
+              <br>
+
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+
             </p>
             <p class="font-italic font-weight-normal mb-0">- Teresa May</p>
           </div>
@@ -335,5 +364,20 @@ window.addEventListener("scroll", loadAnimations);
   width: 100%; /* Full-width container */
   padding: 0; /* No padding by default */
   margin: 0 auto; /* Center align if needed */
+}
+#btn-start-now{
+
+   border-radius: 15px;
+   border: 1px solid gray;
+   font-size: 25px;
+   color: teal;
+   background-color: white;
+   padding: 10px 50px;
+}
+#start-now{
+  background-color: teal;
+  color: white;
+  padding: 100px;
+  margin-top: 100px;
 }
 </style>

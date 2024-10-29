@@ -16,12 +16,14 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
             'password' => 'required|string|min:6',
+            'role' => 'required|string|in:student,instructor', // Validate that role is either 'student' or 'instructor'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role, // Save the role
         ]);
 
         return response()->json(['message' => 'User registered successfully'], 201);

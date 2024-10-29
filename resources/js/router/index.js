@@ -5,6 +5,8 @@ import notFound from '../components/notFound.vue'
 import login from '../components/pages/auth/login.vue'
 import register from '../components/pages/auth/register.vue'
 
+import student from '../components/pages/dashboard/student.vue'
+import instructor from '../components/pages/dashboard/instructor.vue'
 const routes = [
     //pages
     {
@@ -18,6 +20,8 @@ const routes = [
     },
     { path: '/login', component:login  },
     { path: '/register', component:register  },
+    { path: '/student_dashboard', component:student  },
+    { path: '/instructor_dashboard', component:instructor  },
 
 ]
 

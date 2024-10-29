@@ -10,7 +10,15 @@
                 <input class="form-control" v-model="email" type="email" placeholder="Email" required />
                 Password
                 <input class="form-control" v-model="password" type="password" placeholder="Password" required />
-               <br>
+                <div class="mt-3">
+                  <label>Role:</label><br />
+                  <input checked type="radio" id="student" value="student" v-model="role" required />
+                  <label for="student"> Student</label>
+                  <br>
+                  <input type="radio" id="instructor" value="instructor" v-model="role" required class="ml-2" />
+                  <label for="instructor">  Instructor</label>
+                </div>
+                <br>
                 <button class="btn btn-primary" type="submit">Register</button>
             </form>
         </div>
@@ -23,7 +31,8 @@
       return {
         name: '',
         email: '',
-        password: ''
+        password: '',
+        role: null, // Initially set to null
       };
     },
     methods: {
@@ -33,8 +42,9 @@
             name: this.name,
             email: this.email,
             password: this.password,
+            role: this.role,
           });
-          alert('Registration successful');
+          //alert('Registration successful');
           this.$router.push('/login');
         } catch (error) {
           alert('Registration failed');
