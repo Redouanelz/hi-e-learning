@@ -25,8 +25,12 @@
             />
             <div class="card-body">
               <h5 class="card-title">{{ course.title }}</h5>
-              <p class="card-text">{{ course.description }}</p>
-              <a href="#" class="btn btn-primary">Enroll Now</a>
+              <p class="card-text" style="font-size: 13px">
+                {{ course.description }}
+              </p>
+              <router-link :to="`/course/${course.id}`" class="btn btn-primary">
+                Enroll Now
+              </router-link>
             </div>
             <span>
               <i class="bi bi-person-check"></i> {{ course.instructor.name }}
@@ -36,7 +40,7 @@
         </div>
       </div>
       <div v-else class="text-center w-100">
-        <p>No courses found...</p>
+        <p>Searching for courses...</p>
       </div>
     </div>
   </div>
@@ -60,7 +64,6 @@ export default {
       try {
         const response = await axios.get("/api/courses"); // Ensure your API endpoint is correct
         this.courses = response.data;
-        console.log(this.courses);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }

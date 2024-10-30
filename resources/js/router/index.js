@@ -7,6 +7,8 @@ import register from '../components/pages/auth/register.vue'
 
 import student from '../components/pages/dashboard/student.vue'
 import instructor from '../components/pages/dashboard/instructor.vue'
+import courseIndex from '../components/pages/course/index.vue'
+
 const routes = [
     //pages
     {
@@ -22,6 +24,7 @@ const routes = [
     { path: '/register', component:register  },
     { path: '/student/dashboard', component:student  },
     { path: '/instructor/dashboard', component:instructor  },
+    { path: '/course/:id', component:courseIndex  },
 
 ]
 
