@@ -56,8 +56,8 @@ class CourseController extends Controller
 
         // Check if the user is already enrolled in the course
         $existingEnrollment = Enrollment::where('user_id', $user->id)
-                                         ->where('course_id', $courseId)
-                                         ->first();
+            ->where('course_id', $courseId)
+            ->first();
 
         if ($existingEnrollment) {
             return response()->json(['message' => 'You are already enrolled in this course.'], 409);
@@ -71,5 +71,71 @@ class CourseController extends Controller
 
         // Return success response
         return response()->json(['message' => 'Successfully enrolled in the course.', 'enrollment' => $enrollment], 201);
+    }
+
+
+    public function isEnrolled($courseId)
+    {
+        $user = Auth::user();
+        $isEnrolled =  Enrollment::where('user_id', $user->id)
+            ->where('course_id', $courseId)
+            ->exists();
+        return response()->json(['isEnrolled' => $isEnrolled]);
+    }
+
+
+    public function unenroll(Request $request, $courseId)
+    {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Check if the enrollment exists
+        $enrollment = Enrollment::where('user_id', $user->id)
+            ->where('course_id', $courseId)
+            ->first();
+
+        if (!$enrollment) {
+            return response()->json(['message' => 'You are not enrolled in this course.'], 404);
+        }
+
+        // Delete the enrollment
+        $enrollment->delete();
+
+        // Return success response
+        return response()->json(['message' => 'Enrollment removed successfully.'], 200);
+    }
+
+    // In CourseController.php or EnrollmentController.php
+
+    public function getStudentEnrollments()
+    {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Fetch the user's enrollments along with course details
+        $enrollments = Enrollment::where('user_id', $user->id)->with('course')->get();
+
+        // Return as JSON response
+        return response()->json($enrollments);
+    }
+
+
+    // In EnrollmentController.php
+
+    public function removeEnrollment($courseId)
+    {
+        $user = Auth::user();
+
+        // Find the enrollment for this user and course
+        $enrollment = Enrollment::where('user_id', $user->id)->where('course_id', $courseId)->first();
+
+        if (!$enrollment) {
+            return response()->json(['message' => 'Enrollment not found.'], 404);
+        }
+
+        // Delete the enrollment
+        $enrollment->delete();
+
+        return response()->json(['message' => 'Enrollment removed successfully.']);
     }
 }

@@ -29,7 +29,7 @@
                 {{ course.description }}
               </p>
               <router-link :to="`/course/${course.id}`" class="btn btn-primary">
-                Enroll Now
+                See course
               </router-link>
             </div>
             <span>

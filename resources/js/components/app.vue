@@ -22,14 +22,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" v-if="isAuthenticated">
               <li class="nav-item">
                 <router-link active-class="active-bold" class="nav-link" to="/"
                   ><i class="bi bi-house-door-fill"></i> Home</router-link
                 >
               </li>
-              <li class="nav-item" v-if="isAuthenticated">
-                <span  v-if="user.role === 'instructor'">
+                <li class="nav-item" v-if="user.role === 'instructor'">
                 <router-link
                   active-class="active-bold"
                   class="nav-link"
@@ -37,16 +36,31 @@
                 >
                   <i class="bi bi-speedometer"></i> Instructor Dashboard
                 </router-link>
-              </span>
-              <span v-else-if="user.role === 'student'">
+              </li>
+              <li class="nav-item" v-else-if="user.role === 'student'">
                 <router-link
                   active-class="active-bold"
                   class="nav-link"
                   to="/student/dashboard"
                 >
                   <i class="bi bi-speedometer"></i> Student Dashboard
+                </router-link>              
+              </li>
+              <li class="nav-item" v-if="user.role === 'student'">
+                <router-link
+                  active-class="active-bold"
+                  class="nav-link"
+                  to="/student/enrolled"
+                >
+                <i class="bi bi-book"></i> My enrolled courses
                 </router-link>
-              </span>
+              </li>
+            </ul>
+            <ul class="navbar-nav" v-if="!isAuthenticated">
+              <li class="nav-item">
+                <router-link active-class="active-bold" class="nav-link" to="/"
+                  ><i class="bi bi-house-door-fill"></i> Home</router-link
+                >
               </li>
             </ul>
 
