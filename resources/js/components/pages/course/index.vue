@@ -2,7 +2,7 @@
   <div>
     <div class="container mt-5">
       <div class="row" v-if="courseDetails">
-        <div class="col-md-3" >
+        <div class="col-md-3">
           <h2 class="text-center mb-4" v-if="courseDetails">
             Course : <br />
             {{ courseDetails.title }}
@@ -36,23 +36,27 @@
           </span>
         </div>
         <div class="col-md-7 offset-1">
-
           <div class="lessons-container">
+            <h2>Lessons</h2>
+            <ul v-if="lessons.length > 0">
+              <li v-for="lesson in lessons" :key="lesson.id">
+                <hr />
+                <b>Lesson : {{ lesson.title }}</b>
+                <p v-html="lesson.content"></p>
+                <!-- Render HTML content here -->
+              </li>
+            </ul>
 
-          <h2>Lessons</h2>
-          <ul v-if="lessons.length > 0">
-            <li v-for="lesson in lessons" :key="lesson.id">
-              <hr>
-              <b>Lesson : {{ lesson.title }}</b>
-              <p v-html="lesson.content"></p> <!-- Render HTML content here -->
-            </li>
-          </ul>
-          
-          <p v-else>Searching for lessons, no lessons found.</p>
+            <p v-else>Searching for lessons, no lessons found.</p>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary m-4">Start Quiz</button>
+            </div>
           </div>
         </div>
       </div>
-      <p v-else>Loading course details...</p>
+      <p v-else>Loading course details, no course found...</p>
     </div>
   </div>
 </template>
@@ -68,7 +72,6 @@ export default {
       lessons: [],
       message: "", // Define message variable
       isEnrolled: false, // Track enrollment status
-
     };
   },
   created() {
@@ -119,7 +122,9 @@ export default {
     async checkEnrollmentStatus() {
       try {
         const courseId = this.$route.params.id;
-        const response = await axios.get(`/api/courses/${courseId}/is-enrolled`);
+        const response = await axios.get(
+          `/api/courses/${courseId}/is-enrolled`
+        );
         this.isEnrolled = response.data.isEnrolled;
         console.log(this.isEnrolled);
       } catch (error) {
@@ -127,22 +132,22 @@ export default {
       }
     },
 
-
     async removeEnrollment() {
       try {
         const courseId = this.courseDetails.id;
-        const response = await axios.delete(`/api/courses/${courseId}/unenroll`);
+        const response = await axios.delete(
+          `/api/courses/${courseId}/unenroll`
+        );
         if (response.status === 200) {
           this.message = "Enrollment removed successfully.";
           this.isEnrolled = false;
         }
       } catch (error) {
         this.message =
-          error.response?.data?.message || "An error occurred while removing enrollment.";
+          error.response?.data?.message ||
+          "An error occurred while removing enrollment.";
       }
     },
-
-
   },
 };
 </script>
@@ -154,6 +159,5 @@ export default {
   overflow-y: auto; /* Enable vertical scrolling */
   padding-right: 10px; /* Add some padding for better alignment */
 }
-
 </style>
   

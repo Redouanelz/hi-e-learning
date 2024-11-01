@@ -22,6 +22,7 @@
         <p v-else>You are not enrolled in any courses yet.</p>
       </div>
     </div>
+    <div style="margin-bottom: 150px;"></div>
   </template>
   
   <script>
