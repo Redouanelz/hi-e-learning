@@ -6,7 +6,7 @@
       <router-link
         v-for="quiz in quizzes"
         :key="quiz.id"
-        class="btn btn-secondary m-2"
+        class="btn btn-primary m-2"
         :to="`/course/quiz/${quiz.id}`"
       >
         {{ quiz.title }}
