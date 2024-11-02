@@ -9,6 +9,8 @@ import student from '../components/pages/dashboard/student.vue'
 import instructor from '../components/pages/dashboard/instructor.vue'
 import courseIndex from '../components/pages/course/index.vue'
 import studentEnrolled from '../components/pages/course/enrolled.vue'
+import quizIndex from '../components/pages/quiz/index.vue'
+
 const routes = [
     //pages
     {
@@ -26,6 +28,7 @@ const routes = [
     { path: '/instructor/dashboard', component:instructor  },
     { path: '/course/:id', component:courseIndex  },
     { path: '/student/enrolled', component:studentEnrolled  },
+    { path: '/course/quiz/:id', component:quizIndex  },
 
 ]
 

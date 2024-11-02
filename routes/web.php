@@ -25,4 +25,5 @@ Route::get('/api/courses/{id}/is-enrolled', [CourseController::class, 'isEnrolle
 Route::delete('/api/courses/{id}/unenroll', [CourseController::class, 'unenroll']);
 
 Route::get('/api/student/enrollments', [CourseController::class, 'getStudentEnrollments']);
-Route::delete('/api/student/enrollments/{courseId}', [CourseController::class, 'removeEnrollment']);
+Route::delete('/api/student/enrollments/{id}', [CourseController::class, 'removeEnrollment']);
+Route::get('/api/courses/{id}/quizzes', [CourseController::class, 'getQuizzes']);

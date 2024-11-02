@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use Illuminate\Support\Facades\Log;
 use App\Models\Enrollment;
-
+use App\Models\Quiz;
 
 class CourseController extends Controller
 {
@@ -138,4 +138,15 @@ class CourseController extends Controller
 
         return response()->json(['message' => 'Enrollment removed successfully.']);
     }
+
+
+    public function getQuizzes($courseId)
+    {
+        // Fetch quizzes associated with the course using a direct where clause
+        $quizzes = Quiz::where('course_id', $courseId)->get(['id', 'title']);
+        
+        return response()->json($quizzes);
+    }
+    
+
 }

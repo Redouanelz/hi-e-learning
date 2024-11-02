@@ -51,7 +51,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button class="btn btn-primary m-4">Start Quiz</button>
+              <QuizList :courseId="courseDetails.id" />
             </div>
           </div>
         </div>
@@ -63,9 +63,13 @@
   
   <script>
 import axios from "axios";
+import QuizList from "@/components/quizlist/QuizList.vue";
 
 export default {
   props: ["id"],
+  components: {
+    QuizList,
+  },
   data() {
     return {
       courseDetails: null,
@@ -126,7 +130,6 @@ export default {
           `/api/courses/${courseId}/is-enrolled`
         );
         this.isEnrolled = response.data.isEnrolled;
-        console.log(this.isEnrolled);
       } catch (error) {
         console.error("Error checking enrollment status:", error);
       }
