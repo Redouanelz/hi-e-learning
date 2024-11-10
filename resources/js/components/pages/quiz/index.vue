@@ -39,7 +39,7 @@
               <p>{{ feedback }}</p>
             </div>
           </div>
-          <p v-else>Loading questions...</p>
+          <p v-else>Loading questions, no question found...</p>
         </div>
       </div>
     </div>
