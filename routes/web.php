@@ -30,4 +30,4 @@ Route::get('/api/courses/{id}/quizzes', [CourseController::class, 'getQuizzes'])
 
 
 use App\Http\Controllers\QuizController;
-Route::get('/api/quizzes/{quizId}', [QuizController::class, 'show']);
+Route::get('/api/quizzes/{id}', [QuizController::class, 'show']);
